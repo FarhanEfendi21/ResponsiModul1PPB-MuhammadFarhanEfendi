@@ -45,7 +45,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
         "status": "Proses",
         "tanggalMasuk": "2025-10-17",
         "tanggalSelesai": "2025-10-23"
-    },
+     },
 2. Mendapatkan Semua Item (READ)
    Mengambil seluruh daftar data cucian yang ada.
    - Endpoint: GET /items
@@ -57,21 +57,27 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
         "created_at": "2025-10-17T10:00:30.272013+00:00",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
-        "status": "Proses"
+        "status": "Proses",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-23"
       },
       {
         "id": "a4aa4127-4007-42c7-b5f4-f98b9da1ba01",
         "created_at": "2025-10-17T10:00:56.660635+00:00",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Farhan",
-        "status": "Siap Diambil"
+        "status": "Siap Diambil",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-26"
       },
       {
         "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
         "created_at": "2025-10-17T10:01:17.002537+00:00",
         "nama_sepatu": "New Balance 530",
         "nama_pelanggan": "Lebron",
-        "status": "Selesai"
+        "status": "Selesai",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-21"
       }
      ]
 3. Memfilter Item berdasarkan Status (READ)
@@ -81,24 +87,87 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      ```
      [
       {
+        {
         "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
         "created_at": "2025-10-17T10:01:17.002537+00:00",
         "nama_sepatu": "New Balance 530",
         "nama_pelanggan": "Lebron",
-        "status": "Selesai"
+        "status": "Selesai",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-21"
       }
      ]
 
      [
       {
-       "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
+        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
         "created_at": "2025-10-17T10:00:30.272013+00:00",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
-        "status": "Proses"
+        "status": "Proses",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-23"
       }
      ]
 
 4. Memperbarui Item (UPDATE)
+   Mengubah data item yang sudah ada, misalnya mengubah statusnya.
+   - Endpoint: PUT /items/ba28c9b1-1f42-4dbb-8c81-cfd37216fc09
+   - Request Body:
+     ```
+     {
+      "status": "Selesai",
+      "tanggalSelesai": "2025-10-23" 
+     }
+
+   - Response Sukses:
+     ```
+     [
+      {
+        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
+        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "nama_sepatu": "Nike P-6000",
+        "nama_pelanggan": "Effendy",
+        "status": "Selesai",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-23"
+      }
+     ]
+     
+5. Menghapus Item (DELETE)
+   Menghapus data item dari sistem.
+   - Endpoint: PUT /items/b2ce1628-cdef-4071-bb31-8c3116abab0e
+   - Response Sukses:
+     ```
+     {
+       "message": "Item dengan ID b2ce1628-cdef-4071-bb31-8c3116abab0e berhasil dihapus."
+     }
+
+### Langkah Instalasi dan Cara Menjalankan API
+1. Clone Repository Buka terminal Kalian dan jalankan perintah berikut:
+   ```
+    git clone https://github.com/USERNAME/NAMA-REPO.git
+    cd NAMA-REPO
+
+2. Install Dependencies Instal semua package Node.js yang dibutuhkan proyek:
+   ```
+   npm install
+
+3. Konfigurasi Environment Variables Buat sebuah file baru bernama .env di direktori utama proyek. Salin dan tempel format di bawah ini, lalu isi dengan kredensial dari dashboard Supabase Kalian.
+   ```
+   SUPABASE_URL=URL_PROYEK_SUPABASE_ANDA
+   SUPABASE_KEY=KUNCI_ANON_PUBLIC_ANDA
+
+4. Jalankan Server Lokal Untuk menjalankan API di mode development (server akan otomatis restart jika ada perubahan kode), gunakan:
+   ```
+   npm run dev
+
+5. API akan berjalan dan dapat diakses melalui http://localhost:3000.
+
+
+
+
+
+
 
 
