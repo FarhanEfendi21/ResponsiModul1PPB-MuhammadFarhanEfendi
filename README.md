@@ -146,8 +146,8 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 ### Langkah Instalasi dan Cara Menjalankan API
 1. Clone Repository Buka terminal Kalian dan jalankan perintah berikut:
    ```
-    git clone https://github.com/USERNAME/NAMA-REPO.git
-    cd NAMA-REPO
+    git clone https://github.com/FarhanEfendi21/ResponsiModul1-MuhammadFarhanEfendi.git
+    cd .
 
 2. Install Dependencies Instal semua package Node.js yang dibutuhkan proyek:
    ```
