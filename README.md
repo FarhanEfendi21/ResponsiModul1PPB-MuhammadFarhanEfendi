@@ -20,4 +20,19 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 | `created_at` | `timestampz` | Waktu dan tanggal kapan data pertama kali dibuat. |
 | `nama_sepatu` | `text` | Nama atau deskripsi singkat sepatu (misal: "Nike Air Jordan 1"). |
 | `nama_pelanggan` | `text` | Nama pelanggan pemilik sepatu. |
-| `status` | `text` | Status progres pencucian. Nilai yang disarankan: **Diterima**, **Proses**, **Siap Diambil**, **Selesai**. |
+| `status` | `text` | Status progres pencucian. Nilai yang disarankan: , **Proses**, **Siap Diambil**, **Selesai**. |
+
+### Contoh Request dan Response
+1. Membuat Item Baru (CREATE)
+   Menambahkan data cucian sepatu baru ke dalam sistem.
+   - Endpoint: POST /items
+   - Request Body:
+     ```json
+{
+  "nama_sepatu": "New Balance 530",
+  "nama_pelanggan": "Lebron",
+  "status": "Selesai"
+}
+
+
+
