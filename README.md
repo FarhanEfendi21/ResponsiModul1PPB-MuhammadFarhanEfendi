@@ -29,19 +29,23 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
    - Request Body:
      ```
      {
-     "nama_sepatu": "New Balance 530",
-     "nama_pelanggan": "Lebron",
-     "status": "Selesai"
+     "nama_sepatu": "Nike P-6000",
+     "nama_pelanggan": "Effendy",
+     "status": "Proses",
+     "tanggalMasuk": "2025-10-17",
+     "tanggalSelesai": "2025-10-23"
      }
    - Response Sukses:
      ```
      {
-        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
-        "created_at": "2025-10-17T10:01:17.002537+00:00",
-        "nama_sepatu": "New Balance 530",
-        "nama_pelanggan": "Lebron",
-        "status": "Selesai"
-     }
+        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
+        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "nama_sepatu": "Nike P-6000",
+        "nama_pelanggan": "Effendy",
+        "status": "Proses",
+        "tanggalMasuk": "2025-10-17",
+        "tanggalSelesai": "2025-10-23"
+    },
 2. Mendapatkan Semua Item (READ)
    Mengambil seluruh daftar data cucian yang ada.
    - Endpoint: GET /items
