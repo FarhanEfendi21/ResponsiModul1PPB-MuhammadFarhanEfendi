@@ -27,12 +27,74 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
    Menambahkan data cucian sepatu baru ke dalam sistem.
    - Endpoint: POST /items
    - Request Body:
-     ```json
-{
-  "nama_sepatu": "New Balance 530",
-  "nama_pelanggan": "Lebron",
-  "status": "Selesai"
-}
+     ```
+     {
+     "nama_sepatu": "New Balance 530",
+     "nama_pelanggan": "Lebron",
+     "status": "Selesai"
+     }
+   - Response Sukses:
+     ```
+     {
+        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
+        "created_at": "2025-10-17T10:01:17.002537+00:00",
+        "nama_sepatu": "New Balance 530",
+        "nama_pelanggan": "Lebron",
+        "status": "Selesai"
+     }
+2. Mendapatkan Semua Item (READ)
+   Mengambil seluruh daftar data cucian yang ada.
+   - Endpoint: GET /items
+   - Response Sukses:
+     ```
+     [
+      {
+        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
+        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "nama_sepatu": "Nike P-6000",
+        "nama_pelanggan": "Effendy",
+        "status": "Proses"
+      },
+      {
+        "id": "a4aa4127-4007-42c7-b5f4-f98b9da1ba01",
+        "created_at": "2025-10-17T10:00:56.660635+00:00",
+        "nama_sepatu": "Nike P-6000",
+        "nama_pelanggan": "Farhan",
+        "status": "Siap Diambil"
+      },
+      {
+        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
+        "created_at": "2025-10-17T10:01:17.002537+00:00",
+        "nama_sepatu": "New Balance 530",
+        "nama_pelanggan": "Lebron",
+        "status": "Selesai"
+      }
+     ]
+3. Memfilter Item berdasarkan Status (READ)
+   Mengambil daftar data cucian yang memiliki status spesifik.
+   - Endpoint: GET /items?status=Selesai dan GET /items?status=Proses
+   - Response Sukses:
+     ```
+     [
+      {
+        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
+        "created_at": "2025-10-17T10:01:17.002537+00:00",
+        "nama_sepatu": "New Balance 530",
+        "nama_pelanggan": "Lebron",
+        "status": "Selesai"
+      }
+     ]
 
+     [
+      {
+       "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
+        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "nama_sepatu": "Nike P-6000",
+        "nama_pelanggan": "Effendy",
+        "status": "Proses"
+      }
+     ]
+
+4. Memperbarui Item (UPDATE)
 
 
