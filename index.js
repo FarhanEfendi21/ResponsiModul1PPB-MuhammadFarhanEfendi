@@ -42,18 +42,20 @@ app.get('/items', async (req, res) => {
   }
 });
 
-// POST /items -> Buat data baru
+// POST /items -> Buat data baru (SESUAI GAMBAR)
 app.post('/items', async (req, res) => {
-  const { nama_sepatu, nama_pelanggan, status } = req.body;
+  // Mengambil field baru dari body request
+  const { nama, status, tanggalMasuk, tanggalSelesai } = req.body;
 
   try {
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('items')
-      .insert([{ nama_sepatu, nama_pelanggan, status }])
-      .select(); // .select() agar data yang baru dibuat dikembalikan
+      // Memasukkan data dengan field baru
+      .insert([{ nama, status, tanggalMasuk, tanggalSelesai }]);
 
     if (error) throw error;
-    res.status(201).json(data);
+    // Mengirimkan response message sesuai gambar
+    res.status(201).json({ message: "Data sepatu berhasil ditambahkan." });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -62,12 +64,14 @@ app.post('/items', async (req, res) => {
 // PUT /items/:id -> Update data berdasarkan ID
 app.put('/items/:id', async (req, res) => {
   const { id } = req.params;
-  const { nama_sepatu, nama_pelanggan, status } = req.body;
+  // Menggunakan field baru untuk update
+  const { nama, status, tanggalMasuk, tanggalSelesai } = req.body;
 
   try {
     const { data, error } = await supabase
       .from('items')
-      .update({ nama_sepatu, nama_pelanggan, status })
+      // Mengupdate dengan field baru
+      .update({ nama, status, tanggalMasuk, tanggalSelesai })
       .eq('id', id)
       .select();
       
@@ -84,12 +88,16 @@ app.delete('/items/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from('items')
       .delete()
-      .eq('id', id);
+      .eq('id', id)
+      .select();
 
     if (error) throw error;
+    if (data.length === 0) {
+      return res.status(404).json({ error: `Item dengan ID ${id} tidak ditemukan` });
+    }
     res.status(200).json({ message: `Item dengan ID ${id} berhasil dihapus.` });
   } catch (error) {
     res.status(500).json({ error: error.message });
