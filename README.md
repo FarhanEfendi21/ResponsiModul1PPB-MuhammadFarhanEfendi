@@ -164,7 +164,8 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 
 5. API akan berjalan dan dapat diakses melalui http://localhost:3000.
 
-
+### Link Deploy (Vercel)
+https://responsi-modul1-muhammad-farhan-efe.vercel.app/
 
 
 
