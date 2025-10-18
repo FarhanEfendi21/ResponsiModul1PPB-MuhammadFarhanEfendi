@@ -7,10 +7,12 @@ Proyek ini adalah sebuah REST API fungsional yang dibangun untuk mengelola alur 
 Tujuan utama dari API ini adalah menyediakan sistem terpusat untuk melacak status setiap pasang sepatu yang masuk, mulai dari proses pemcucian hingga selesai dan diambil oleh pelanggan.
 
 ### Fitur Utama
-- Manajemen Data (CRUD): Dapat menjalankan operasi penuh untuk Create (membuat data baru), Read (membaca data), Update (memperbarui status), dan Delete (menghapus data cucian).
-- Pelacakan Status Real-time: Memungkinkan pembaruan status untuk setiap item cucian (misalnya: Proses, Siap Diambil, Selesai).
-- Penyaringan Data Dinamis: Memungkinkan pengguna untuk menyaring dan melihat data berdasarkan status tertentu, yang mempermudah pencarian dan manajemen operasional.
-- Akses Publik: Dideploy menggunakan Vercel agar dapat diakses dari mana saja melalui internet.
+| Metode | Endpoint | Deskripsi |
+| :--- | :--- | :--- |
+| `GET` | `/items` | Mengambil dan menampilkan seluruh daftar data cucian sepatu. |
+| `POST` | `/items` | Membuat entri data baru untuk sepatu yang baru diterima. |
+| `PUT` | `/items/:id` | Memperbarui informasi atau status data sepatu yang sudah ada. |
+| `DELETE` | `/items/:id` | Menghapus data sepatu dari daftar, biasanya setelah transaksi selesai. |
 
 ## Struktur Data
 Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai primary key memastikan setiap entri memiliki ID yang unik secara global.
