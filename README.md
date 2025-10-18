@@ -1,6 +1,6 @@
 #  REST API Layanan Cuci Sepatu 
 ## Deskripsi Umum Proyek
-Proyek ini adalah sebuah REST API fungsional yang dibangun untuk mengelola alur kerja layanan cuci sepatu. API ini berfungsi sebagai backend yang menangani semua logika bisnis dan interaksi dengan database, memungkinkan aplikasi frontend (web atau mobile) untuk mengelola data cucian sepatu secara terprogram dan efisien.
+Proyek ini adalah tugas responsi untuk modul 1 Pembuatan API dengan JavaScript. Dalam proyek ini, dibuat sebuah API menggunakan Node.js dan Express.js yang berfungsi untuk mengelola data sepatu yang sedang dalam proses pencucian pada sebuah layanan jasa cuci sepatu.
 
 ## Tujuan dan Fitur Utama
 ### Tujuan
