@@ -33,94 +33,91 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
    - Request Body:
      ```
      {
-     "nama_sepatu": "Nike P-6000",
-     "nama_pelanggan": "Effendy",
-     "status": "Proses",
-     "tanggalMasuk": "2025-10-17",
-     "tanggalSelesai": "2025-10-23"
+       "nama_sepatu": "Adidas Samba",
+       "nama_pelanggan": "Ronaldo",
+       "status": "Proses Dicuci"
      }
    - Response Sukses:
      ```
-     {
-        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "Nike P-6000",
-        "nama_pelanggan": "Effendy",
-        "status": "Proses",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-23"
-     },
+     [
+      {
+        "id": "5154ffc4-3260-4d65-b5f3-f403b242bd5f",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Ronaldo",
+        "status": "Proses Dicuci",
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": null
+      }
+     ]
 2. Mendapatkan Semua Item (READ)
    Mengambil seluruh daftar data cucian yang ada.
    - Endpoint: GET /items
    - Response Sukses:
      ```
-     [
-      {
-        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "Nike P-6000",
-        "nama_pelanggan": "Effendy",
-        "status": "Proses",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-23"
-      },
-      {
-        "id": "a4aa4127-4007-42c7-b5f4-f98b9da1ba01",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "Nike P-6000",
-        "nama_pelanggan": "Farhan",
+      [
+       {
+        "id": "5154ffc4-3260-4d65-b5f3-f403b242bd5f",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Ronaldo",
+        "status": "Proses Dicuci",
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": null
+       },
+       {
+        "id": "d5d82ce5-d2fe-4387-980b-ad852ed8095b",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Ronaldo",
         "status": "Siap Diambil",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-26"
-      },
-      {
-        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "New Balance 530",
-        "nama_pelanggan": "Lebron",
-        "status": "Selesai",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-21"
-      }
-     ]
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": "2025-10-18"
+       },
+       {
+        "id": "48f60530-bbc5-416f-a04a-f147b04ece15",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Vans",
+        "nama_pelanggan": "Lionel",
+        "status": "Siap Diambil",
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": "2025-10-18"
+       }
+      ]
+     
 3. Memfilter Item berdasarkan Status (READ)
    Mengambil daftar data cucian yang memiliki status spesifik.
-   - Endpoint: GET /items?status=Selesai dan GET /items?status=Proses
+   - Endpoint: GET /items?status=Siap Diambil 
    - Response Sukses:
      ```
      [
       {
-        {
-        "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "New Balance 530",
-        "nama_pelanggan": "Lebron",
-        "status": "Selesai",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-21"
-      }
-     ]
-     
-     [
+        "id": "d5d82ce5-d2fe-4387-980b-ad852ed8095b",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Ronaldo",
+        "status": "Siap Diambil",
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": "2025-10-18"
+      },
       {
-        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "Nike P-6000",
-        "nama_pelanggan": "Effendy",
-        "status": "Proses",
-        "tanggalMasuk": "2025-10-17",
-        "tanggalSelesai": "2025-10-23"
+        "id": "48f60530-bbc5-416f-a04a-f147b04ece15",
+        "created_at": "2025-10-18",
+        "nama_sepatu": "Vans",
+        "nama_pelanggan": "Lionel",
+        "status": "Siap Diambil",
+        "tanggalMasuk": "2025-10-18",
+        "tanggalSelesai": "2025-10-18"
       }
      ]
 
 4. Memperbarui Item (UPDATE)
    Mengubah data item yang sudah ada, misalnya mengubah statusnya.
-   - Endpoint: PUT /items/ba28c9b1-1f42-4dbb-8c81-cfd37216fc09
+   - Endpoint: PUT /items/5154ffc4-3260-4d65-b5f3-f403b242bd5f
    - Request Body:
      ```
      {
-      "status": "Selesai",
+      "status": "Siap Diambil",
       "tanggalSelesai": "2025-10-23" 
      }
 
@@ -128,19 +125,19 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      ```
      [
       {
-        "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17",
-        "nama_sepatu": "Nike P-6000",
-        "nama_pelanggan": "Effendy",
-        "status": "Selesai",
-        "tanggalMasuk": "2025-10-17",
+        "id": "5154ffc4-3260-4d65-b5f3-f403b242bd5f",
+        "created_at": "2025-10-18T14:17:41.082483+00:00",
+        "nama_sepatu": "Adidas Samba",
+        "nama_pelanggan": "Ronaldo",
+        "status": "Siap Diambil",
+        "tanggalMasuk": "2025-10-18",
         "tanggalSelesai": "2025-10-23"
       }
      ]
      
 5. Menghapus Item (DELETE)
    Menghapus data item dari sistem.
-   - Endpoint: PUT /items/b2ce1628-cdef-4071-bb31-8c3116abab0e
+   - Endpoint: PUT /items/5154ffc4-3260-4d65-b5f3-f403b242bd5f
    - Response Sukses:
      ```
      {
