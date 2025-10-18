@@ -99,7 +99,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
         "tanggalSelesai": "2025-10-21"
       }
      ]
-
+   ```
      [
       {
         "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
