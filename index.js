@@ -16,18 +16,21 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(cors());
 app.use(express.json()); // Untuk membaca body request dalam format JSON
 
-// 4. Definisikan Routes (Endpoint)
+// =================================================================================
+// === API ENDPOINTS ===============================================================
+// =================================================================================
 
 // GET / -> Halaman utama
 app.get('/', (req, res) => {
   res.send('Selamat Datang di API Cuci Sepatu!');
 });
 
-// GET /items -> Baca semua data atau filter berdasarkan status
+// GET /items -> Baca semua data (dengan created_at yang diformat)
 app.get('/items', async (req, res) => {
   const { status } = req.query;
   
-  let query = supabase.from('items').select('*');
+  // Mengurutkan berdasarkan data terbaru
+  let query = supabase.from('items').select('*').order('created_at', { ascending: false });
 
   if (status) {
     query = query.eq('status', status);
@@ -36,26 +39,34 @@ app.get('/items', async (req, res) => {
   try {
     const { data, error } = await query;
     if (error) throw error;
-    res.json(data);
+
+    // Format 'created_at' untuk setiap item agar menjadi tanggal saja (YYYY-MM-DD)
+    const formattedData = data.map(item => {
+      return {
+        ...item, // Salin semua properti asli dari item
+        created_at: item.created_at.substring(0, 10) 
+      };
+    });
+
+    res.json(formattedData); // Kirim data yang sudah diformat
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// POST /items -> Buat data baru (SESUAI GAMBAR)
+// POST /items -> Buat data baru
 app.post('/items', async (req, res) => {
-  // Mengambil field baru dari body request
-  const { nama, status, tanggalMasuk, tanggalSelesai } = req.body;
+  // Menggunakan field nama_sepatu dan nama_pelanggan
+  const { nama_sepatu, nama_pelanggan, status } = req.body;
 
   try {
-    const { error } = await supabase
+    const { data, error } = await supabase
       .from('items')
-      // Memasukkan data dengan field baru
-      .insert([{ nama, status, tanggalMasuk, tanggalSelesai }]);
+      .insert([{ nama_sepatu, nama_pelanggan, status }])
+      .select();
 
     if (error) throw error;
-    // Mengirimkan response message sesuai gambar
-    res.status(201).json({ message: "Data sepatu berhasil ditambahkan." });
+    res.status(201).json(data);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -64,14 +75,19 @@ app.post('/items', async (req, res) => {
 // PUT /items/:id -> Update data berdasarkan ID
 app.put('/items/:id', async (req, res) => {
   const { id } = req.params;
-  // Menggunakan field baru untuk update
-  const { nama, status, tanggalMasuk, tanggalSelesai } = req.body;
+  const { nama_sepatu, nama_pelanggan, status, tanggalSelesai } = req.body;
+
+  const updateData = { nama_sepatu, nama_pelanggan, status, tanggalSelesai };
+
+  // Otomatis isi tanggalSelesai jika status diubah menjadi "Selesai"
+  if (status && !tanggalSelesai && (status.toLowerCase() === 'selesai' || status.toLowerCase() === 'siap diambil')) {
+    updateData.tanggalSelesai = new Date().toISOString().split('T')[0];
+  }
 
   try {
     const { data, error } = await supabase
       .from('items')
-      // Mengupdate dengan field baru
-      .update({ nama, status, tanggalMasuk, tanggalSelesai })
+      .update(updateData)
       .eq('id', id)
       .select();
       
@@ -104,8 +120,10 @@ app.delete('/items/:id', async (req, res) => {
   }
 });
 
+// =================================================================================
+// === JALANKAN SERVER =============================================================
+// =================================================================================
 
-// 5. Jalankan server
 app.listen(port, () => {
   console.log(`Server berjalan di http://localhost:${port}`);
 });
