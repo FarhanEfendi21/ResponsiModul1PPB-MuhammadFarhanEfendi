@@ -149,7 +149,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 1. Clone Repository Buka terminal Kalian dan jalankan perintah berikut:
    ```
     git clone https://github.com/FarhanEfendi21/ResponsiModul1-MuhammadFarhanEfendi.git
-    cd .
+    cd ResponsiModul1-MuhammadFarhanEfendi
 
 2. Install Dependencies Instal semua package Node.js yang dibutuhkan proyek:
    ```
