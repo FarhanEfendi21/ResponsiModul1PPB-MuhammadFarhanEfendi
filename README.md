@@ -12,7 +12,7 @@ Tujuan utama dari API ini adalah menyediakan sistem terpusat untuk melacak statu
 - Penyaringan Data Dinamis: Memungkinkan pengguna untuk menyaring dan melihat data berdasarkan status tertentu, yang mempermudah pencarian dan manajemen operasional.
 - Akses Publik: Dideploy menggunakan Vercel agar dapat diakses dari mana saja melalui internet.
 
-### Struktur Data
+## Struktur Data
 Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai primary key memastikan setiap entri memiliki ID yang unik secara global.
 | Kolom | Tipe Data | Deskripsi |
 | :--- | :--- | :--- |
@@ -24,7 +24,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 | `tanggalMasuk` | `date` | Tanggal saat sepatu diterima dari pelanggan. |
 | `tanggalSelesai`| `date` | Tanggal saat proses pencucian selesai. Kolom ini bisa kosong (`NULL`). |
 
-### Contoh Request dan Response
+## Contoh Request dan Response
 1. Membuat Item Baru (CREATE)
    Menambahkan data cucian sepatu baru ke dalam sistem.
    - Endpoint: POST /items
@@ -145,7 +145,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
        "message": "Item dengan ID b2ce1628-cdef-4071-bb31-8c3116abab0e berhasil dihapus."
      }
 
-### Langkah Instalasi dan Cara Menjalankan API
+## Langkah Instalasi dan Cara Menjalankan API
 1. Clone Repository Buka terminal Kalian dan jalankan perintah berikut:
    ```
     git clone https://github.com/FarhanEfendi21/ResponsiModul1PPB-MuhammadFarhanEfendi.git
@@ -166,7 +166,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 
 5. API akan berjalan dan dapat diakses melalui http://localhost:3000.
 
-### Link Deploy (Vercel)
+## Link Deploy (Vercel)
 https://responsi-modul1-muhammad-farhan-efe.vercel.app/
 
 
