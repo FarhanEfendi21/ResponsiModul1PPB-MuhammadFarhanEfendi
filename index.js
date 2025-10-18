@@ -54,9 +54,8 @@ app.get('/items', async (req, res) => {
   }
 });
 
-// POST /items -> Buat data baru
+// POST /items -> Buat data baru (dengan created_at yang diformat)
 app.post('/items', async (req, res) => {
-  // Menggunakan field nama_sepatu dan nama_pelanggan
   const { nama_sepatu, nama_pelanggan, status } = req.body;
 
   try {
@@ -66,7 +65,18 @@ app.post('/items', async (req, res) => {
       .select();
 
     if (error) throw error;
-    res.status(201).json(data);
+
+    // --- PENYESUAIAN BARU ---
+    // Format juga data yang dikembalikan setelah POST
+    const formattedData = data.map(item => {
+        return {
+            ...item,
+            created_at: item.created_at.substring(0, 10)
+        };
+    });
+    // --- AKHIR PENYESUAIAN ---
+
+    res.status(201).json(formattedData); // Kirim data baru yang sudah diformat
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
