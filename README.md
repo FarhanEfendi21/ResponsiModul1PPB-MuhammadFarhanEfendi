@@ -41,7 +41,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      ```
      {
         "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
         "status": "Proses",
@@ -56,7 +56,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      [
       {
         "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
         "status": "Proses",
@@ -65,7 +65,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
       },
       {
         "id": "a4aa4127-4007-42c7-b5f4-f98b9da1ba01",
-        "created_at": "2025-10-17T10:00:56.660635+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Farhan",
         "status": "Siap Diambil",
@@ -74,7 +74,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
       },
       {
         "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
-        "created_at": "2025-10-17T10:01:17.002537+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "New Balance 530",
         "nama_pelanggan": "Lebron",
         "status": "Selesai",
@@ -91,7 +91,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
       {
         {
         "id": "1fa5e129-8e1f-429a-ab04-b17973ff0c2b",
-        "created_at": "2025-10-17T10:01:17.002537+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "New Balance 530",
         "nama_pelanggan": "Lebron",
         "status": "Selesai",
@@ -103,7 +103,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      [
       {
         "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
         "status": "Proses",
@@ -127,7 +127,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      [
       {
         "id": "b2ce1628-cdef-4071-bb31-8c3116abab0e",
-        "created_at": "2025-10-17T10:00:30.272013+00:00",
+        "created_at": "2025-10-17",
         "nama_sepatu": "Nike P-6000",
         "nama_pelanggan": "Effendy",
         "status": "Selesai",
