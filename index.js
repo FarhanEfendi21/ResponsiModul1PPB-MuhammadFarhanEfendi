@@ -13,10 +13,12 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 app.use(cors());
 app.use(express.json());
 
+// GET / -> Halaman utama
 app.get('/', (req, res) => {
   res.send('Selamat Datang di API Cuci Sepatu!');
 });
 
+// GET /items -> Baca semua data (dengan pesan jika kosong)
 app.get('/items', async (req, res) => {
   const { status } = req.query;
   
@@ -47,6 +49,34 @@ app.get('/items', async (req, res) => {
   }
 });
 
+// --- PENAMBAHAN BARU DI SINI ---
+// GET /items/:id -> Baca satu data spesifik berdasarkan ID
+app.get('/items/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const { data, error } = await supabase
+      .from('items')
+      .select('*')
+      .eq('id', id)
+      .single(); 
+
+    if (error) {
+      // Menangani error jika ID tidak ditemukan oleh .single()
+      return res.status(404).json({ message: `Item dengan ID ${id} tidak ditemukan.` });
+    }
+
+    // Format created_at sebelum mengirim respons
+    data.created_at = data.created_at.substring(0, 10);
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+// --- AKHIR PENAMBAHAN ---
+
+// POST /items -> Buat data baru (dengan validasi input)
 app.post('/items', async (req, res) => {
   const { nama_sepatu, nama_pelanggan, status } = req.body;
 
@@ -77,6 +107,7 @@ app.post('/items', async (req, res) => {
   }
 });
 
+// PUT /items/:id -> Update data berdasarkan ID
 app.put('/items/:id', async (req, res) => {
   const { id } = req.params;
   const { nama_sepatu, nama_pelanggan, status, tanggalSelesai } = req.body;
@@ -102,6 +133,7 @@ app.put('/items/:id', async (req, res) => {
   }
 });
 
+// DELETE /items/:id -> Hapus data berdasarkan ID
 app.delete('/items/:id', async (req, res) => {
   const { id } = req.params;
 
