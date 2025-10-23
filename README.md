@@ -20,7 +20,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
 | :--- | :--- | :--- |
 | `id` | `uuid` (Primary Key) | ID unik universal yang digenerasi otomatis untuk setiap data cucian. |
 | `created_at` | `timestamptz` | Waktu dan tanggal kapan data pertama kali dibuat oleh sistem. |
-| `nama_sepatu` | `text` | Nama atau deskripsi singkat sepatu (contoh: "Nike Air Jordan 1"). |
+| `nama_sepatu` | `text` | Nama atau deskripsi singkat sepatu. |
 | `nama_pelanggan` | `text` | Nama pelanggan yang memiliki sepatu. |
 | `status` | `text` | Status progres pencucian (contoh: `Diterima`, `Proses Dicuci`, `Siap Diambil`). |
 | `tanggalMasuk` | `date` | Tanggal saat sepatu diterima dari pelanggan. |
