@@ -137,7 +137,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      
 5. Menghapus Item (DELETE)
    Menghapus data item dari sistem.
-   - Endpoint: PUT /items/5154ffc4-3260-4d65-b5f3-f403b242bd5f
+   - Endpoint: DELETE /items/b2ce1628-cdef-4071-bb31-8c3116abab0e
    - Response Sukses:
      ```
      {
