@@ -12,7 +12,7 @@ Tujuan utama dari API ini adalah menyediakan sistem terpusat untuk melacak statu
 | `GET` | `/items` | Mengambil dan menampilkan seluruh daftar data cucian sepatu. |
 | `POST` | `/items` | Membuat entri data baru untuk sepatu yang baru diterima. |
 | `PUT` | `/items/:id` | Memperbarui informasi atau status data sepatu yang sudah ada. |
-| `DELETE` | `/items/:id` | Menghapus data sepatu dari daftar, biasanya setelah transaksi selesai. |
+| `DELETE` | `/items/:id` | Menghapus data sepatu dari daftar. |
 
 ## Struktur Data
 Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai primary key memastikan setiap entri memiliki ID yang unik secara global.
