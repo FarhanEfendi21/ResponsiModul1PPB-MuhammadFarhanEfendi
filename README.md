@@ -126,7 +126,7 @@ Data disimpan dalam tabel items di database Supabase. Penggunaan uuid sebagai pr
      [
       {
         "id": "5154ffc4-3260-4d65-b5f3-f403b242bd5f",
-        "created_at": "2025-10-18T14:17:41.082483+00:00",
+        "created_at": "2025-10-18",
         "nama_sepatu": "Adidas Samba",
         "nama_pelanggan": "Ronaldo",
         "status": "Siap Diambil",
